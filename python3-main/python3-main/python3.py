@@ -158,7 +158,14 @@ Feladat: Párosok egy szövegfájlból.
 Írj egy függvényt parosok_a_fajlbol néven, amely visszatér a szövegfájlban levő páros számokkal mint listával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def parosok_a_fajlbol(fajnev):
+    with open(fajnev) as f:
+        parosok = f.read().split()
+    par = []
+    for i in parosok:
+        if int(i) % 2 == 0:
+            par.append(int(i))
+    return par
 
 
 #--------------------------
@@ -168,7 +175,14 @@ A neggyel_oszthato_szamok_a_fajlban függvény
 egy függvényt neggyel_oszthato_szamok_a_fajlban néven, amely visszatér a szövegfájlban levő neggyel osztható számok listájával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def neggyel_oszthato_szamok_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szam = f.read().split()
+    negy = []
+    for i in szam:
+        if int(i) % 4 == 0:
+            negy.append(int(i))
+    return negy
 
 
 #--------------------------
