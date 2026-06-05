@@ -405,7 +405,10 @@ Készíts függvényt szaz_szam_fajlba néven, amely 1-tól 100-ig egyesével ki
 Minden szám kerüljön új sorba.
 A fájl nevét paraméterként kapja meg a függvény.
 '''
-
+def szaz_szam_fajlba(fajnev):
+    with open(fajnev, "w") as f:
+        for i in range(1, 101):
+            f.write(str(i) + "\n")
 
 
 #--------------------------
@@ -423,7 +426,12 @@ Feladat: Utolsó karakter a szövegfájlban
 Írj egy függvényt utolso_karakter_a_fajlban néven, amely visszatér egy szövegfájl utolsó karakterével.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def utolso_karakter_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        karakter = f.read()
+    if karakter == "":
+        return None
+    return karakter[-1]
 
 
 #--------------------------
