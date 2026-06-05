@@ -198,7 +198,14 @@ A Teglalap osztály rendelkezik egy terulet() nevü metódussal,
     amely az osztály segítségével létrehozott objektum metódusaként 
         visszaadja az adott objektum területét.
 '''
-
+class Teglalap:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def kerulet(self):
+        return 2 * self.a + 2 * self.b
+    def terulet(self):
+        return self.a * self.b
 
 
 #--------------------------
@@ -207,7 +214,14 @@ Feladat: Páratlan számok száma egy szövegfájlban.
 Írj egy függvényt paratlan_szamok_szama_a_fajlban néven, amely visszatér egy szövegfájlban levő páratlan számok számával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def paratlan_szamok_szama_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szam = f.read().split()
+    parat = 0
+    for i in szam:
+        if int(i) % 2 != 0:
+            parat += 1
+    return parat
 
 
 #--------------------------
@@ -217,7 +231,10 @@ paraméterként egy fájlnevet kap és
 visszatér a fájlban levő karakterek számával. 
 ('\n karakterekkel együtt')
 '''
-
+def karakterek_szama(fajnev):
+    with open(fajnev) as f:
+        karakterek = f.read()
+    return len(karakterek)
 
 
 #--------------------------
@@ -226,8 +243,14 @@ Feladat: Hárommal osztható számok a szövegfájlban.
 Írj egy függvényt harommal_oszthato_szamok_a_fajlban néven, amely visszatér a szövegfájlban levő hárommal osztható számok listájával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
-
+def harommal_oszthato_szamok_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szam = f.read().split()
+    harom = []
+    for i in szam:
+        if int(i) % 3 == 0:
+            harom.append(int(i))
+    return harom
 
 #--------------------------
 '''
@@ -235,7 +258,10 @@ Feladat: String fájlba írása
 A string_fajlba nevű függvény az első paraméterként kapott sztringet fájlba írja.
 A fájl nevét második paraméterként kapja meg a függvény.
 '''
-
+def string_fajlba(string, fajnev):
+    with open(fajnev, "w") as f:
+        f.write(string)
+    return len(string)
 
 
 #--------------------------
@@ -244,7 +270,14 @@ Feladat: Pozitív számok száma egy szövegfájlban.
 Írj egy függvényt pozitiv_szamok_szama_a_fajlban néven, amely visszatér egy szövegfájlban levő pozitiv számok számával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def pozitiv_szamok_szama_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szam = f.read().split()
+    poz = 0
+    for i in szam:
+        if int(i) > 0:
+            poz += 1
+    return poz
 
 
 #--------------------------
@@ -253,7 +286,15 @@ Feladat: Számok átlaga egy szövegfájlban.
 Írj egy függvényt szamok_atlaga_a_fajlban néven, amely visszatér egy szövegfájlban levő számok átlagával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def szamok_atlaga_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        lista = f.read().split()
+    if lista == []:
+        return 0
+    atlag = 0
+    for i in lista:
+        atlag += int(i)
+    return atlag / len(lista)
 
 
 #--------------------------
@@ -262,7 +303,17 @@ Feladat: Legnagyobb szám egy szövegfájlban.
 Írj egy függvényt legnagyobb_szam_a_fajlban néven, amely visszatér egy szövegfájlban levő legnagyobb számmal.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def legnagyobb_szam_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        lista = f.read().split()
+    if lista == []:
+        return None
+    max = int(lista[0])
+    for i in lista:
+        if int(i) > max:
+            max = int(i)
+    return max
+        
 
 
 #--------------------------
