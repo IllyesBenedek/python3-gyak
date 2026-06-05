@@ -322,7 +322,14 @@ Feladat: Leggyakoribb szám a szövegfájlban.
 Írj egy függvényt leggyakoribb_szam_a_fajlban néven, amely visszatér a szövegfájlban levő leggyakoribb számmal.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def leggyakoribb_szam_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szamok = f.read().split()
+    leggyakoribb = int(szamok[0])
+    for i in szamok:
+        if szamok.count(i) > szamok.count(str(leggyakoribb)):
+            leggyakoribb = int(i)
+    return leggyakoribb
 
 
 #--------------------------
@@ -331,7 +338,14 @@ Feladat: Páratlanok egy szövegfájlból.
 Írj egy függvényt paratlanok_a_fajlbol néven, amely visszatér a szövegfájlban levő páratlan számokkal mint listával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def paratlanok_a_fajlbol(fajnev):
+    with open(fajnev) as f:
+        szama = f.read().split()
+    parat = []
+    for i in szama:
+        if int(i) % 2 != 0:
+            parat.append(int(i))
+    return parat
 
 
 #--------------------------
@@ -340,7 +354,16 @@ Feladat: Legkisebb szám egy szövegfájlban.
 Írj egy függvényt legkisebb_szam_a_fajlban néven, amely visszatér egy szövegfájlban levő lekisebb számmal.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def legkisebb_szam_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        lista = f.read().split()
+    if lista == []:
+        return None
+    min = int(lista[0])
+    for i in lista:
+        if int(i) < min:
+            min = int(i)
+    return min
 
 
 #--------------------------
@@ -349,7 +372,14 @@ Feladat: Negatív számok száma egy szövegfájlban.
 Írj egy függvényt negativ_szamok_szama_a_fajlban néven, amely visszatér egy szövegfájlban levő negativ számok számával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def negativ_szamok_szama_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szama = f.read().split()
+    neg = 0
+    for i in szama:
+        if int(i) < 0:
+            neg += 1
+    return neg
 
 
 #--------------------------
